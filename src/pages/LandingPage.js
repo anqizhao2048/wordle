@@ -1,19 +1,27 @@
 import * as React from "react";
 import {Button, Grid, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {setHardGame, setNormalGame} from "../reducer/gameReducer";
+import {pickHardWord, pickNormalWord} from "../reducer/wordReducer";
 
 function LandingPage() {
     const navigate = useNavigate();
+    const dispatch = useDispatch()
 
     const goToRule = () => {
         navigate("/rule")
     }
 
     const goToNormalGame = () => {
+        dispatch(setNormalGame())
+        dispatch(pickNormalWord())
         navigate("/normal-game")
     }
 
     const goToHardGame = () => {
+        dispatch(setHardGame())
+        dispatch(pickHardWord())
         navigate("/hard-game")
     }
     return (
