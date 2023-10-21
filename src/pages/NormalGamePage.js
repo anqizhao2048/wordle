@@ -14,7 +14,7 @@ function NormalGamePage() {
             return navigate('/');
         }
 
-    }, []);
+    }, [currentWord, navigate]);
 
     return (
         <div>

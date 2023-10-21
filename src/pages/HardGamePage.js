@@ -14,7 +14,7 @@ function HardGamePage() {
             return navigate('/');
         }
 
-    }, []);
+    }, [currentWord, navigate]);
 
     return (
         <div>
