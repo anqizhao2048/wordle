@@ -5,7 +5,7 @@ export const gameSlice = createSlice({
     initialState: {
         attemptedTime: 0,
         allowedAttemptTime: 0,
-        usedLetter: [],
+        triedWords: [],
         letterNumber: 0,
     },
     reducers: {
@@ -18,12 +18,12 @@ export const gameSlice = createSlice({
             state.letterNumber = 7;
         },
         attempt: (state, action) => {
-            state.attemptedTime = state.attemptedTime - 1;
-            state.usedLetter.push("a");
+            state.attemptedTime = state.attemptedTime + 1;
+            state.triedWords.push(action.payload)
         },
         reset: (state) => {
             state.attemptedTime = 0;
-            state.usedLetter =  [];
+            state.triedWords =  [];
         },
     },
 })
