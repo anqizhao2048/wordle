@@ -62,8 +62,17 @@ export const gameSlice = createSlice({
         pickHardWord: (state) => {
             state.currentWord = state.hardWords[getRandomNumber(0, 9)];
         },
+        pickAnotherWord: (state, action) => {
+            state.attemptedTime = 0;
+            state.triedWords =  [];
+            if (action.payload === "normal") {
+                state.currentWord = state.normalWords[getRandomNumber(0, 9)];
+            } else {
+                state.currentWord = state.hardWords[getRandomNumber(0, 9)];
+            }
+        },
     },
 })
-export const { setNormalGame, setHardGame, attempt, reset, pickNormalWord, pickHardWord } = gameSlice.actions
+export const { setNormalGame, setHardGame, attempt, reset, pickNormalWord, pickHardWord, pickAnotherWord } = gameSlice.actions
 
 export default gameSlice.reducer

@@ -17,7 +17,7 @@ function NormalGamePage() {
     }, [currentWord, navigate]);
 
     return (
-        <Game allowedAttemptTime={allowedAttemptTime} />
+        <Game allowedAttemptTime={allowedAttemptTime} gameType="normal"/>
     );
 }
 

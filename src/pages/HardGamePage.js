@@ -18,7 +18,7 @@ function HardGamePage() {
     }, [currentWord, navigate]);
 
     return (
-        <Game allowedAttemptTime={allowedAttemptTime} />
+        <Game allowedAttemptTime={allowedAttemptTime} gameType="hard"/>
 
     );
 }
