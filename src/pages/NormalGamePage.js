@@ -1,20 +1,17 @@
-import {useSelector} from "react-redux";
-import {useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import Game from "../components/Game";
+import {pickNormalWord, setNormalGame} from "../reducer/gameReducer";
 
 function NormalGamePage() {
     const allowedAttemptTime = useSelector((state) => state.gameReducer.allowedAttemptTime)
-    const currentWord  = useSelector((state) => state.gameReducer.currentWord)
-
-    const navigate = useNavigate();
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        if (currentWord === "") {
-            return navigate('/');
-        }
+        dispatch(setNormalGame())
+        dispatch(pickNormalWord())
 
-    }, [currentWord, navigate]);
+    }, [dispatch]);
 
     return (
         <Game allowedAttemptTime={allowedAttemptTime} gameType="normal"/>

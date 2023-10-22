@@ -1,21 +1,18 @@
-import {useSelector} from "react-redux";
-import {useNavigate} from 'react-router-dom';
+import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import Game from "../components/Game";
+import {pickHardWord, setHardGame} from "../reducer/gameReducer";
 
 
 function HardGamePage() {
     const allowedAttemptTime = useSelector((state) => state.gameReducer.allowedAttemptTime)
-    const currentWord  = useSelector((state) => state.gameReducer.currentWord)
-
-    const navigate = useNavigate();
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        if (currentWord === "") {
-            return navigate('/');
-        }
+        dispatch(setHardGame())
+        dispatch(pickHardWord())
 
-    }, [currentWord, navigate]);
+    }, [dispatch]);
 
     return (
         <Game allowedAttemptTime={allowedAttemptTime} gameType="hard"/>
