@@ -1,15 +1,16 @@
 import {useSelector} from "react-redux";
 import {useNavigate} from 'react-router-dom';
 import {useEffect} from "react";
+import Game from "../components/Game";
 
 
 function HardGamePage() {
     const allowedAttemptTime = useSelector((state) => state.gameReducer.allowedAttemptTime)
-    const currentWord  = useSelector((state) => state.wordReducer.currentWord)
+    const currentWord  = useSelector((state) => state.gameReducer.currentWord)
+
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Check your condition
         if (currentWord === "") {
             return navigate('/');
         }
@@ -17,13 +18,8 @@ function HardGamePage() {
     }, [currentWord, navigate]);
 
     return (
-        <div>
-            <div>
-                Hard Game Page
-                <div>{allowedAttemptTime}</div>
-                <div>{currentWord}</div>
-            </div>
-        </div>
+        <Game allowedAttemptTime={allowedAttemptTime} />
+
     );
 }
 
