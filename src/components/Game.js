@@ -4,7 +4,7 @@ import HintInfo from "./HintInfo";
 import Form from "./Form";
 import {useSelector} from "react-redux";
 import FailedGame from "./FailedGame";
-import ResetGameButton from "./ResetGameButton";
+import ButtonGroup from "./ButtonGroup";
 
 function Game(props) {
     const attemptedTime = useSelector((state) => state.gameReducer.attemptedTime)
@@ -13,12 +13,12 @@ function Game(props) {
     return (
             <div>
                 <div> {guessCorrect && <Congrats />}</div>
-                <div> {!guessCorrect && attemptedTime === props.allowedAttemptTime && <FailedGame />}</div>
-                <div style={{marginTop: "30px"}}><ResetGameButton gameType={props.gameType}/></div>
-                <div style={{marginTop: "30px"}}>
+                <div> {!guessCorrect && attemptedTime === props.allowedAttemptTime && <FailedGame gameType={props.gameType}/>}</div>
+                <div style={{marginTop: "30px"}}><ButtonGroup gameType={props.gameType}/></div>
+                <div style={{marginTop: "30px", textAlign: "center"}}>
                     <HintInfo />
                 </div>
-                <div style={{marginTop: "30px"}}>
+                <div style={{marginTop: "60px"}}>
                     <Form />
                 </div>
             </div>

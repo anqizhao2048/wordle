@@ -1,11 +1,19 @@
 import {Typography} from "@mui/material";
 import * as React from "react";
+import {useDispatch} from "react-redux";
+import {pickAnotherWord} from "../reducer/gameReducer";
 
-function FailedGame() {
+function FailedGame(props) {
+    const dispatch = useDispatch()
+
+    const handleTryAgain = () => {
+        dispatch(pickAnotherWord(props.gameType))
+    }
+
     return (
         <div style={{marginTop: "50px"}} >
             <Typography variant="h5" color="primary" align="center" gutterBottom>
-                Oops! You didn't find the word. Do you want to try again?
+                Oops! You didn't find the word. Do you want to <span style={{color: "blue"}} onClick={handleTryAgain}>try again</span> ?
             </Typography>
         </div>
     );
