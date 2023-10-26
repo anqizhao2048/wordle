@@ -55,6 +55,7 @@ export const gameSlice = createSlice({
             state.attemptedTime = 0;
             state.triedWords = [];
             state.currentWord = "";
+            state.guessCorrect = false;
         },
         pickNormalWord: (state) => {
             state.currentWord = state.normalWords[getRandomNumber(0, 9)];
@@ -65,6 +66,7 @@ export const gameSlice = createSlice({
         pickAnotherWord: (state, action) => {
             state.attemptedTime = 0;
             state.triedWords = [];
+            state.guessCorrect = false;
             if (action.payload === "normal") {
                 state.currentWord = state.normalWords[getRandomNumber(0, 9)];
             } else {
