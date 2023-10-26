@@ -4,7 +4,7 @@ import {pickAnotherWord} from "../reducer/gameReducer";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
-function ButtonGroup(props) {
+function GameButtonGroup(props) {
     const dispatch = useDispatch()
     const navigate = useNavigate();
 
@@ -30,4 +30,4 @@ function ButtonGroup(props) {
     );
 }
 
-export default ButtonGroup;
+export default GameButtonGroup;
