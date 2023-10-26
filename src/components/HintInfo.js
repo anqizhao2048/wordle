@@ -15,10 +15,10 @@ function HintInfo() {
                 <Grid item xs={8}>
                     <div style={{fontSize: '20px', fontFamily: "MONOSPACE"}}>
                         <div style={{marginTop: '10px'}}>
-                            Please input a <span style={{color: "green"}}>{currentWord.length}-letter</span> word to guess
+                            Please input a <span style={{color: "darkblue"}}>{currentWord.length}-letter</span> word to guess
                         </div>
                         <div style={{marginTop: '10px'}}>You can try <span style={{color: "green"}}>{allowedAttemptTime}</span> times!</div>
-                        <div style={{marginTop: '10px'}}>You already tried <span style={{color: "green"}}>{attemptedTime}</span> times</div>
+                        <div style={{marginTop: '10px'}}>You already tried <span style={{color: "orange"}}>{attemptedTime}</span> times</div>
                         <div style={{marginTop: '10px'}}>current word: {currentWord}</div>
                         <div style={{marginTop: '20px'}}>tried words:</div>
                         {
