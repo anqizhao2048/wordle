@@ -11,17 +11,18 @@ function Game(props) {
     const guessCorrect = useSelector((state) => state.gameReducer.guessCorrect)
 
     return (
-            <div>
-                <div> {guessCorrect && <Congrats />}</div>
-                <div> {!guessCorrect && attemptedTime === props.allowedAttemptTime && <FailedGame gameType={props.gameType}/>}</div>
-                <div style={{marginTop: "30px"}}><ButtonGroup gameType={props.gameType}/></div>
-                <div style={{marginTop: "30px", textAlign: "center"}}>
-                    <HintInfo />
-                </div>
-                <div style={{marginTop: "60px"}}>
-                    <Form buttonDisabled={guessCorrect || attemptedTime === props.allowedAttemptTime} />
-                </div>
+        <div>
+            <div> {guessCorrect && <Congrats/>}</div>
+            <div> {!guessCorrect && attemptedTime === props.allowedAttemptTime &&
+                <FailedGame gameType={props.gameType}/>}</div>
+            <div style={{marginTop: "30px"}}><ButtonGroup gameType={props.gameType}/></div>
+            <div style={{marginTop: "30px", textAlign: "center"}}>
+                <HintInfo/>
             </div>
+            <div style={{marginTop: "60px"}}>
+                <Form buttonDisabled={guessCorrect || attemptedTime === props.allowedAttemptTime}/>
+            </div>
+        </div>
     );
 }
 

@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
 import {getRandomNumber} from "../utils/number";
 
 export const gameSlice = createSlice({
@@ -53,7 +53,7 @@ export const gameSlice = createSlice({
         },
         reset: (state) => {
             state.attemptedTime = 0;
-            state.triedWords =  [];
+            state.triedWords = [];
             state.currentWord = "";
         },
         pickNormalWord: (state) => {
@@ -64,7 +64,7 @@ export const gameSlice = createSlice({
         },
         pickAnotherWord: (state, action) => {
             state.attemptedTime = 0;
-            state.triedWords =  [];
+            state.triedWords = [];
             if (action.payload === "normal") {
                 state.currentWord = state.normalWords[getRandomNumber(0, 9)];
             } else {
@@ -73,6 +73,14 @@ export const gameSlice = createSlice({
         },
     },
 })
-export const { setNormalGame, setHardGame, attempt, reset, pickNormalWord, pickHardWord, pickAnotherWord } = gameSlice.actions
+export const {
+    setNormalGame,
+    setHardGame,
+    attempt,
+    reset,
+    pickNormalWord,
+    pickHardWord,
+    pickAnotherWord
+} = gameSlice.actions
 
 export default gameSlice.reducer

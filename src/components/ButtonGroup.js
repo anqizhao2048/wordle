@@ -18,7 +18,7 @@ function ButtonGroup(props) {
 
     return (
         <Grid container spacing={2}>
-            <Grid item xs={2} ></Grid>
+            <Grid item xs={2}></Grid>
             <Grid item xs={4}>
                 <div style={{textAlign: "center"}}><Button onClick={resetGame}> reset game</Button></div>
             </Grid>

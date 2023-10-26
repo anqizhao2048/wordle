@@ -11,9 +11,10 @@ function FailedGame(props) {
     }
 
     return (
-        <div style={{marginTop: "50px"}} >
+        <div style={{marginTop: "50px"}}>
             <Typography variant="h5" color="primary" align="center" gutterBottom>
-                Oops! You didn't find the word. Do you want to <span style={{color: "blue"}} onClick={handleTryAgain}>try again</span> ?
+                Oops! You didn't find the word. Do you want to <span style={{color: "blue", cursor: 'default'}}
+                                                                     onClick={handleTryAgain}>try again</span> ?
             </Typography>
         </div>
     );

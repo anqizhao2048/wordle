@@ -9,7 +9,7 @@ function Header() {
     }
 
     return (
-        <div style={{marginTop: "50px"}} >
+        <div style={{marginTop: "50px", cursor: 'default'}}>
             <Typography variant="h4" color="primary" align="center" gutterBottom onClick={goBack}>
                 Wordle
             </Typography>

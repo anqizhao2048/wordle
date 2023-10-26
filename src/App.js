@@ -7,17 +7,17 @@ import Header from "./components/Header";
 
 function App() {
 
-  return (
-      <div>
-          <Header />
-          <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/rule" element={<RulePage />} />
-              <Route path="/normal-game" element={<NormalGamePage />} />
-              <Route path="/hard-game" element={<HardGamePage />} />
-          </Routes>
-      </div>
-  );
+    return (
+        <div>
+            <Header/>
+            <Routes>
+                <Route path="/" element={<LandingPage/>}/>
+                <Route path="/rule" element={<RulePage/>}/>
+                <Route path="/normal-game" element={<NormalGamePage/>}/>
+                <Route path="/hard-game" element={<HardGamePage/>}/>
+            </Routes>
+        </div>
+    );
 }
 
 export default App;

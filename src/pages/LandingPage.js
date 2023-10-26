@@ -17,7 +17,7 @@ function LandingPage() {
     }
     return (
         <div>
-            <div style={{marginLeft: "100px", marginTop: "100px", marginRight: "100px",  textAlign: "center"}}>
+            <div style={{marginLeft: "100px", marginTop: "100px", marginRight: "100px", textAlign: "center"}}>
                 <Grid container spacing={2}>
                     <Grid item xs={4}>
                         <div>
