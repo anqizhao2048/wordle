@@ -13,18 +13,16 @@ function NavigationButtonGroup(props) {
         navigate("/hard-game")
     }
     return (
-        <div style={{marginLeft: "100px", marginTop: "40px", marginRight: "100px", textAlign: "center"}}>
-            <Grid container spacing={2}>
-                <Grid item xs={1}/>
-                <Grid item xs={5}>
-                    <Button variant="contained" onClick={goToNormalGame}>Normal Game</Button>
-                </Grid>
-                <Grid item xs={5}>
-                    <Button variant="contained" onClick={goToHardGame}>Difficult Game</Button>
-                </Grid>
-                <Grid item xs={1}/>
+        <Grid container spacing={2}>
+            <Grid item xs={1}></Grid>
+            <Grid item xs={5}>
+                <div style={{textAlign: "center"}}><Button onClick={goToNormalGame}> Normal Game</Button></div>
             </Grid>
-        </div>
+            <Grid item xs={5}>
+                <div style={{textAlign: "center"}}><Button onClick={goToHardGame}> Hard Game</Button></div>
+            </Grid>
+            <Grid item xs={1}></Grid>
+        </Grid>
     );
 }
 

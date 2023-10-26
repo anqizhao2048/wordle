@@ -1,6 +1,8 @@
 import * as React from "react";
 import {Button, Grid} from "@mui/material";
 import {useNavigate} from "react-router-dom";
+import {Box, ButtonGroup} from "@mui/joy";
+import StyledTriedWord from "../components/StyledTriedWord";
 
 function LandingPage() {
     const navigate = useNavigate();
@@ -18,18 +20,28 @@ function LandingPage() {
     return (
         <div>
             <div style={{marginLeft: "100px", marginTop: "100px", marginRight: "100px", textAlign: "center"}}>
-                <Grid container spacing={2}>
-                    <Grid item xs={4}>
-                        <div>
-                            <Button variant="contained" onClick={goToRule}>Rule</Button>
-                        </div>
+                <Grid container spacing={2} >
+                    <Grid item xs={2} />
+                    <Grid item xs={8}>
+                        <Button variant="contained" onClick={goToRule}>Rule</Button>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={2} />
+                </Grid>
+                <div style={{marginTop: "50px"}}></div>
+                <Grid container spacing={2} >
+                    <Grid item xs={2} />
+                    <Grid item xs={8}>
                         <Button variant="contained" onClick={goToNormalGame}>Normal Game</Button>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={2} />
+                </Grid>
+                <div style={{marginTop: "50px"}}></div>
+                <Grid container spacing={2} >
+                    <Grid item xs={2} />
+                    <Grid item xs={8}>
                         <Button variant="contained" onClick={goToHardGame}>Difficult Game</Button>
                     </Grid>
+                    <Grid item xs={2} />
                 </Grid>
             </div>
 
