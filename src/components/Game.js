@@ -19,7 +19,7 @@ function Game(props) {
                     <HintInfo />
                 </div>
                 <div style={{marginTop: "60px"}}>
-                    <Form />
+                    <Form buttonDisabled={guessCorrect || attemptedTime === props.allowedAttemptTime} />
                 </div>
             </div>
     );

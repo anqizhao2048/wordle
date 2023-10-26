@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {attempt} from "../reducer/gameReducer";
 import {Box, Modal} from "@mui/joy";
 
-function MyForm() {
+function MyForm(props) {
     const [text, setText] = useState('');
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -70,7 +70,7 @@ function MyForm() {
                                 />
                             </div>
                             <div style={{ marginTop: '20px', textAlign: "center" }}>
-                                <Button variant="contained" color="primary" type="submit">
+                                <Button variant="contained" color="primary" type="submit" disabled={props.buttonDisabled}>
                                     Submit
                                 </Button>
                             </div>

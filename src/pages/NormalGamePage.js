@@ -1,13 +1,14 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import Game from "../components/Game";
-import {pickNormalWord, setNormalGame} from "../reducer/gameReducer";
+import {pickNormalWord, setNormalGame, reset} from "../reducer/gameReducer";
 
 function NormalGamePage() {
     const allowedAttemptTime = useSelector((state) => state.gameReducer.allowedAttemptTime)
     const dispatch = useDispatch()
 
     useEffect(() => {
+        dispatch(reset())
         dispatch(setNormalGame())
         dispatch(pickNormalWord())
 

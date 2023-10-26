@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import Game from "../components/Game";
-import {pickHardWord, setHardGame} from "../reducer/gameReducer";
+import {pickHardWord, setHardGame, reset} from "../reducer/gameReducer";
 
 
 function HardGamePage() {
@@ -9,6 +9,7 @@ function HardGamePage() {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        dispatch(reset())
         dispatch(setHardGame())
         dispatch(pickHardWord())
 
