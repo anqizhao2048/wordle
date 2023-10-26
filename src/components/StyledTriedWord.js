@@ -9,7 +9,7 @@ function StyledTriedWord(props) {
     return (
         <div>
             {word.split("").map((char, index) => (
-                <span key={index} style={{backgroundColor: colors[index]}}>
+                <span key={index} style={{backgroundColor: colors[index], margin:"1px"}}>
                     {char}
                 </span>
             ))}

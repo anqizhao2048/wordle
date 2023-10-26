@@ -5,11 +5,11 @@ export function wordColorCheck(word, correctWord) {
 
     for (let i = 0; i < chs.length; i++) {
         if (chs[i] === correctWord[i]) {
-            colors[i]("green");
+            colors[i] = "green";
         } else if (charExist(correctWord, chs[i], colors)) {
-            colors[i]("yellow");
+            colors[i] = "yellow";
         } else {
-            colors[i]("grey")
+            colors[i] = "grey";
         }
     }
 
