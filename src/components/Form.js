@@ -4,21 +4,39 @@ import {useDispatch, useSelector} from "react-redux";
 import {attempt} from "../reducer/gameReducer";
 import {Box, Modal} from "@mui/joy";
 
-function MyForm(props) {
+function Form(props) {
     const [text, setText] = useState('');
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const [sizeModelOpen, setSizeModelOpen] = React.useState(false);
+    const [isWordModalOpen, setIsWordModalOpen] = React.useState(false);
+    const handleSizeModalOpen = () => setSizeModelOpen(true);
+    const handleSizeModalClose = () => setSizeModelOpen(false);
+
+    const handleIsWordModalOpen = () => setIsWordModalOpen(true);
+    const handleIsWordModalClose = () => setIsWordModalOpen(false);
+
 
     const letterNumber = useSelector((state) => state.gameReducer.letterNumber)
+    const normalWordDict = useSelector((state) => state.gameReducer.normalWordDict)
+    const hardWordDict = useSelector((state) => state.gameReducer.hardWordDict)
+
+    let wordDict = [];
+    if (props.gameType === "normal") {
+        wordDict = normalWordDict
+    } else {
+        wordDict = hardWordDict
+    }
+
 
     const dispatch = useDispatch()
     const handleSubmit = (event) => {
         event.preventDefault();
 
         if (text.length !== letterNumber) {
-            handleOpen()
-        } else {
+            handleSizeModalOpen()
+        }  else if (!wordDict.includes(text)) {
+            handleIsWordModalOpen()
+        } else
+        {
             dispatch(attempt(text));
         }
 
@@ -39,8 +57,26 @@ function MyForm(props) {
         <div>
             <div>
                 <Modal
-                    open={open}
-                    onClose={handleClose}
+                    open={isWordModalOpen}
+                    onClose={handleIsWordModalClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                    <Box sx={style}>
+                        <div style={{textAlign: "center"}}>
+                            <Typography id="modal-modal-description" sx={{mt: 2}}>
+                                Input Word is not in dictionary
+                            </Typography>
+                        </div>
+                        <div style={{textAlign: "center", marginTop: "5px"}}><Button
+                            onClick={handleIsWordModalClose}> close</Button></div>
+                    </Box>
+                </Modal>
+            </div>
+            <div>
+                <Modal
+                    open={sizeModelOpen}
+                    onClose={handleSizeModalClose}
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
@@ -51,7 +87,7 @@ function MyForm(props) {
                             </Typography>
                         </div>
                         <div style={{textAlign: "center", marginTop: "5px"}}><Button
-                            onClick={handleClose}> close</Button></div>
+                            onClick={handleSizeModalClose}> close</Button></div>
                     </Box>
                 </Modal>
             </div>
@@ -85,4 +121,4 @@ function MyForm(props) {
     );
 }
 
-export default MyForm;
+export default Form;

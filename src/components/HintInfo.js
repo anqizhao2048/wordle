@@ -24,7 +24,6 @@ function HintInfo() {
                     <div style={{marginTop: '10px'}}>You already tried <span
                         style={{color: "orange"}}>{attemptedTime}</span> times
                     </div>
-                    <div style={{marginTop: '10px'}}>current word: {currentWord}</div>
                     <div style={{marginTop: '20px'}}>tried words:</div>
                     {
                         triedWords.map((word, index) => <div style={{marginTop: '10px'}} key={index}><StyledTriedWord

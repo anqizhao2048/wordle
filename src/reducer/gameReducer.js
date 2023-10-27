@@ -1,46 +1,25 @@
 import {createSlice} from '@reduxjs/toolkit'
 import {getRandomNumber} from "../utils/number";
+import {generateHardWordDict, generateNormalWordDict, hardWords, normalWords} from "../words/gameWords";
 
 export const gameSlice = createSlice({
     name: 'game',
     initialState: {
-        hardWords: [
-            "fantasy",
-            "gravity",
-            "plaster",
-            "frosted",
-            "gleeful",
-            "trickle",
-            "flutter",
-            "strange",
-            "bristle",
-            "clarity"
-        ],
-        normalWords: [
-            "bright",
-            "gravel",
-            "frozen",
-            "tangle",
-            "mumble",
-            "driven",
-            "gliste",
-            "sprint",
-            "twinge",
-            "cradle"
-        ],
-        attemptedTime: 0,
         allowedAttemptTime: 0,
-        triedWords: [],
-        letterNumber: 0,
+        attemptedTime: 0,
         currentWord: "",
         guessCorrect: false,
+        letterNumber: 0,
+        triedWords: [],
+        normalWordDict: generateNormalWordDict(),
+        hardWordDict: generateHardWordDict(),
     },
     reducers: {
-        setNormalGame: (state, action) => {
+        setNormalGame: (state) => {
             state.allowedAttemptTime = 6;
             state.letterNumber = 6;
         },
-        setHardGame: (state, action) => {
+        setHardGame: (state) => {
             state.allowedAttemptTime = 5;
             state.letterNumber = 7;
         },
@@ -58,19 +37,19 @@ export const gameSlice = createSlice({
             state.guessCorrect = false;
         },
         pickNormalWord: (state) => {
-            state.currentWord = state.normalWords[getRandomNumber(0, 9)];
+            state.currentWord = normalWords[getRandomNumber(0, 9)];
         },
         pickHardWord: (state) => {
-            state.currentWord = state.hardWords[getRandomNumber(0, 9)];
+            state.currentWord = hardWords[getRandomNumber(0, 9)];
         },
         pickAnotherWord: (state, action) => {
             state.attemptedTime = 0;
             state.triedWords = [];
             state.guessCorrect = false;
             if (action.payload === "normal") {
-                state.currentWord = state.normalWords[getRandomNumber(0, 9)];
+                state.currentWord = normalWords[getRandomNumber(0, 9)];
             } else {
-                state.currentWord = state.hardWords[getRandomNumber(0, 9)];
+                state.currentWord = hardWords[getRandomNumber(0, 9)];
             }
         },
     },

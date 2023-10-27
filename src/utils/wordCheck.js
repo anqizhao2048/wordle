@@ -2,16 +2,16 @@ export function wordColorCheck(guessWord, correctWord) {
     let colors = Array.from(correctWord).fill("");
     let matched = Array.from(correctWord).fill(false);
 
-    let chs = guessWord.split("")
+    let guessWordChs = guessWord.split("")
 
-    for (let i = 0; i < chs.length; i++) {
-        if (chs[i] === correctWord[i]) {
+    for (let i = 0; i < guessWordChs.length; i++) {
+        if (guessWordChs[i] === correctWord[i]) {
             colors[i] = "green";
             matched[i] = true;
         }
     }
 
-    for (let i = 0; i < chs.length; i++) {
+    for (let i = 0; i < guessWordChs.length; i++) {
         if (colors[i] === "green") {
             continue;
         }
@@ -28,10 +28,11 @@ export function wordColorCheck(guessWord, correctWord) {
 }
 
 function charExist(correctWord, guessWord, idx, matched) {
-    let chs = correctWord.split("")
-    for (let i = 0; i < chs.length; i++) {
+    let correctWordChs = correctWord.split("")
 
-        if (guessWord[idx] === chs[i] && !matched[i]) {
+    for (let i = 0; i < correctWordChs.length; i++) {
+
+        if (guessWord[idx] === correctWordChs[i] && !matched[i]) {
             matched[i] = true;
             return true;
         }
